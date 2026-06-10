@@ -1,214 +1,419 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LLM비교 리서치 및 기술 인프라 저널</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #0f172a;
-      --accent-color: #3b82f6;
-      --muted-color: #64748b;
-      --border-color: #e2e8f0;
-      --font-swiss: 'Inter', 'Noto Sans KR', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-ivory-ink">
+    <meta name="description" content="마포에서 시작된 혁명. LLM 기반 백링크 자동화 프로그램이 SEO의 패러다임을 바꾼다. 수작업 링크빌딩은 이제 그만, AI가 당신의 도메인 권위를 극대화합니다. 010-6279-0862로 지금 바로 문의하세요.">
+    <meta name="keywords" content="백링크 자동화, LLM 비교, SEO 자동화, 백링크 프로그램, 마포 백링크, AI 백링크, 링크빌딩 자동화">
+    <meta name="author" content="PBN Lab">
+    <link rel="canonical" href="https://sf-t3-1779642675702-367.vercel.app">
+    <meta property="og:title" content="백링크 자동화의 종말? LLM이 바꾸는 SEO의 미래">
+    <meta property="og:description" content="마포에서 시작된 혁명. LLM 기반 백링크 자동화 프로그램이 SEO의 패러다임을 바꾼다. 수작업 링크빌딩은 이제 그만.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sf-t3-1779642675702-367.vercel.app">
+    <meta property="og:image" content="https://sf-t3-1779642675702-367.vercel.app/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="백링크 자동화의 종말? LLM이 바꾸는 SEO의 미래">
+    <meta name="twitter:description" content="마포에서 시작된 혁명. LLM 기반 백링크 자동화 프로그램이 SEO의 패러다임을 바꾼다.">
+    <meta name="twitter:image" content="https://sf-t3-1779642675702-367.vercel.app/twitter-image.jpg">
+    <title>백링크 자동화 프로그램 | LLM 비교 | 마포 PBN</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "LLM 기반 백링크 자동화 프로그램",
+        "description": "마포에서 개발된 LLM 비교 기반 백링크 자동화 솔루션. 수작업 없이 AI가 도메인 권위를 극대화합니다.",
+        "brand": {
+            "@type": "Brand",
+            "name": "PBN Lab"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "문의",
+            "priceCurrency": "KRW",
+            "availability": "https://schema.org/InStock",
+            "telephone": "010-6279-0862"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "42"
+        }
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-swiss);
-      line-height: 1.7;
-      letter-spacing: -0.01em;
-      padding: 0 24px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: var(--text-color);
-    }
-    nav { display: flex; gap: 20px; }
-    nav a {
-      color: var(--muted-color);
-      text-decoration: none;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--accent-color); }
-    main { padding-bottom: 60px; }
-    .meta-tag {
-      font-size: 0.75rem;
-      font-family: monospace;
-      text-transform: uppercase;
-      color: var(--accent-color);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      color: var(--text-color);
-      margin-bottom: 32px;
-    }
-    .content {
-      font-size: 1.05rem;
-      color: var(--text-color);
-      margin-bottom: 48px;
-      font-weight: 300;
-    }
-    .content p { margin-bottom: 20px; }
-    .juice-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-color);
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .juice-link:hover {
-      background-color: rgba(59, 130, 246, 0.05);
-    }
-    .post-grid {
-      border-top: 1px solid var(--border-color);
-      padding-top: 40px;
-      margin-top: 40px;
-    }
-    .grid-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted-color);
-      margin-bottom: 24px;
-    }
-    .posts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .post-card {
-      border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.2s ease;
-    }
-    .post-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-2px);
-    }
-    .post-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--muted-color);
-    }
-    footer a { color: var(--muted-color); text-decoration: none; }
-    footer a:hover { color: var(--accent-color); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 1.8rem; }
-    }
-  </style>
+    </script>
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 18px; scroll-behavior: smooth; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #fdfaf3;
+            color: #2c2416;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
+        }
+        img, svg { display: block; max-width: 100%; height: auto; }
+        a { color: #8a7355; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+        a:hover { border-bottom-color: #8a7355; }
+
+        /* Typography */
+        h1, h2, h3, h4 { font-family: 'Georgia', 'Times New Roman', serif; font-weight: 700; letter-spacing: 0.04em; line-height: 1.2; }
+        h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid #2c2416; padding-bottom: 0.3rem; display: inline-block; }
+        h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+        p { margin-bottom: 1.2rem; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header & Navigation */
+        header {
+            background: #2c2416;
+            color: #fdfaf3;
+            padding: 24px 0;
+            border-bottom: 2px solid #8a7355;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #fdfaf3;
+            border: none;
+        }
+        .logo:hover { border: none; opacity: 0.8; }
+        nav ul { list-style: none; display: flex; gap: 24px; }
+        nav a {
+            color: #fdfaf3;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            padding: 4px 0;
+        }
+        nav a:hover { border-bottom: 1px solid #8a7355; color: #8a7355; }
+
+        /* Hamburger */
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; background: none; border: none; padding: 4px; }
+        .hamburger span { display: block; width: 28px; height: 2px; background: #fdfaf3; transition: 0.3s; }
+        .nav-mobile { display: none; }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #2c2416 0%, #4a3f2e 40%, #8a7355 70%, #2c2416 100%);
+            color: #fdfaf3;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(138,115,85,0.3) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero .container { position: relative; z-index: 1; }
+        .hero h1 { font-size: 3.2rem; letter-spacing: 0.08em; }
+        .hero p { font-size: 1.1rem; letter-spacing: 0.05em; max-width: 600px; margin: 0 auto 1.5rem; opacity: 0.9; }
+        .hero .subtitle { font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; color: #c4b49a; }
+        .hero .cta {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 12px 32px;
+            border: 2px solid #fdfaf3;
+            color: #fdfaf3;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: transparent;
+            transition: 0.3s;
+        }
+        .hero .cta:hover { background: #fdfaf3; color: #2c2416; border-color: #fdfaf3; }
+
+        /* Sections */
+        section { padding: 40px 0; }
+        .section-gap { margin-bottom: 40px; }
+
+        /* Drop Cap */
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 4rem;
+            line-height: 0.8;
+            margin-right: 0.3em;
+            margin-top: 0.15em;
+            color: #8a7355;
+            font-weight: 700;
+        }
+
+        /* Fine Borders */
+        .bordered-box {
+            border: 1px solid #2c2416;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        /* Review Cards */
+        .review-grid { display: flex; flex-direction: column; gap: 16px; }
+        .review-card {
+            border: 1px solid #2c2416;
+            padding: 24px;
+            background: #fff;
+        }
+        .review-card .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.85rem; letter-spacing: 0.05em; }
+        .review-card .nickname { font-weight: 700; }
+        .review-card .date { color: #8a7355; }
+        .review-card .stars { color: #8a7355; font-size: 1.1rem; letter-spacing: 0.1em; }
+        .review-card blockquote { font-style: italic; line-height: 1.6; border-left: 2px solid #8a7355; padding-left: 16px; margin: 0; }
+
+        /* Features */
+        .feature-list { list-style: none; }
+        .feature-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid #d4cdc0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .feature-list li::before { content: '◆'; color: #8a7355; font-size: 0.7rem; margin-top: 0.3em; }
+
+        /* Contact */
+        .contact-block {
+            border: 2px solid #2c2416;
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .contact-block .phone { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.1em; color: #2c2416; }
+        .contact-block .phone a { color: #2c2416; border: none; }
+        .contact-block .phone a:hover { border-bottom: 2px solid #8a7355; }
+
+        /* Footer */
+        footer {
+            background: #2c2416;
+            color: #fdfaf3;
+            padding: 40px 0 24px;
+            border-top: 2px solid #8a7355;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+        footer a { color: #c4b49a; border-color: #c4b49a; }
+        footer .copyright { margin-top: 16px; opacity: 0.7; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+            .container { padding: 0 16px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .hero { padding: 80px 0 60px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+
+            nav ul { display: none; }
+            .hamburger { display: flex; }
+            .nav-mobile {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2c2416;
+                padding: 16px 24px;
+                border-bottom: 2px solid #8a7355;
+                z-index: 100;
+            }
+            .nav-mobile.active { display: block; }
+            .nav-mobile ul { flex-direction: column; gap: 8px; }
+            .nav-mobile a { display: block; padding: 8px 0; font-size: 1rem; }
+            header { position: relative; }
+            .header-inner { position: relative; }
+
+            .review-card .meta { flex-wrap: wrap; gap: 4px; }
+            .contact-block .phone { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="/" class="logo">T3.SWISS</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="meta-tag">SWISS ACCENTED GRID SYSTEM</div>
-      <h1>LLM비교 리서치 및 기술 인프라 저널</h1>
-      <div class="content">
-        환영합니다. 본 블로그 저널은 현대적이고 세련된 <strong>LLM비교</strong> 분야의 실용 정보와 심도 있는 기술 에세이를 기록하는 전문 아카이브 공간입니다. 아래의 엄선된 아티클 리스트를 통해 다양한 인사이트를 확인하시기 바랍니다.
-      </div>
-      
-      
-      <div class="post-grid">
-        <div class="grid-title">Recent Post Archive</div>
-        <div class="posts-list">
-          
-        <a href="posts/normal-1.html" class="post-card">
-          <h3>LLM비교: LLM비교: OpenAI GPT vs DeepSeek 코딩 생산성 비교</h3>
-          <p>인공지능 시장의 격돌 속에 GPT-4o와 신흥 강자인 DeepSeek-Coder 간의 고난도 프로그래밍 리팩토링 실전 성능 대조는 매우 유익합니다. 딥시크는 빠른 토큰 피드백과 코...</p>
-        </a>
-      
 
-        <a href="posts/normal-2.html" class="post-card">
-          <h3>LLM비교: LLM비교: 로컬 LLM을 내 PC에 안전하게 구축하는 법</h3>
-          <p>외부 서버로 기업 비밀과 핵심 코드가 유출될 우려를 종식시키는 완벽한 오프라인 구동 로컬 LLM 세팅은 GPU VRAM 확보가 필수입니다. Ollama를 이용하면 RTX 4060 ...</p>
-        </a>
-      
-
-        <a href="posts/normal-3.html" class="post-card">
-          <h3>LLM비교: LLM비교: AI 에이전트 오케스트레이션 프레임워크 트렌드</h3>
-          <p>여러 AI 모델들을 유기적으로 엮어 복잡한 에이전트 루프를 스스로 실행하게 돕는 오케스트레이터의 활용법은 생산성 10배 향상의 무기입니다. 각 LLM의 응답성과 정밀도를 상호 보완...</p>
-        </a>
-      
-
-        <a href="posts/juice-1.html" class="post-card">
-          <h3>LLM비교 마니아들에게 공유하는 백링크 자동화 프로그램 활용 로드맵</h3>
-          <p>다양한 거대 인공지능 모델들의 연산 능력과 논리 추론 지표를 세심하게 대조 분석하며 LLM비교의 테크를 넓혀가는 지적인 마니아분들이라면, 가상 컴퓨터 뇌의 분석만큼이나 실제 나의 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="post-card">
-          <h3>LLM비교 마니아들에게 공유하는 백링크 자동화 프로그램 활용 로드맵</h3>
-          <p>다양한 거대 인공지능 모델들의 연산 능력과 논리 추론 지표를 세심하게 대조 분석하며 LLM비교의 테크를 넓혀가는 지적인 마니아분들이라면, 가상 컴퓨터 뇌의 분석만큼이나 실제 나의 ...</p>
-        </a>
-      
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">PBN Lab</a>
+        <nav>
+            <ul>
+                <li><a href="#about">서문</a></li>
+                <li><a href="#features">특징</a></li>
+                <li><a href="#reviews">리뷰</a></li>
+                <li><a href="#contact">연락</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-mobile" id="navMobile">
+            <ul>
+                <li><a href="#about">서문</a></li>
+                <li><a href="#features">특징</a></li>
+                <li><a href="#reviews">리뷰</a></li>
+                <li><a href="#contact">연락</a></li>
+            </ul>
         </div>
-      </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 T3.SWISS. ALL RIGHTS RESERVED.</div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <p class="subtitle">마포 · LLM 비교 · 백링크 자동화</p>
+            <h1>백링크의 종말?<br>AI가 시작한 새로운 질서</h1>
+            <p class="drop-cap">수작업 링크빌딩은 이제 사치다. LLM이 당신의 도메인 권위를 폭발시킨다. 마포에서 시작된 이 혁명, 당신은 뒤쳐질 것인가?</p>
+            <a href="#contact" class="cta">지금 시작하라</a>
+        </div>
+    </section>
+
+    <!-- About / 서문 -->
+    <section id="about">
+        <div class="container">
+            <h2>왜 LLM인가</h2>
+            <p class="drop-cap">백링크 자동화의 패러다임은 더 이상 사람이 아니다. LLM 비교를 통해 최적의 컨텍스트를 생성하고, 자연스러운 링크 프로필을 구축한다. 당신의 경쟁자는 이미 움직이고 있다. 우리는 마포의 작은 연구실에서 이 기술을 완성했다. 42명의 베타 테스터가 입증했다.</p>
+            <div class="bordered-box">
+                <p><strong>핵심:</strong> LLM이 생성한 콘텐츠 + 전략적 백링크 = 검색 엔진 지배. 수동 작업은 0에 가깝다. 결과는 4.8/5.0의 만족도.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+        <div class="container">
+            <h2>무엇을 자동화하는가</h2>
+            <ul class="feature-list">
+                <li><strong>LLM 비교 엔진:</strong> 7개 모델을 동시 분석, 당신의 틈새에 가장 적합한 어조와 구조를 선택한다.</li>
+                <li><strong>자동 링크 삽입:</strong> 앵커 텍스트의 분산, 관련성, 자연스러움을 AI가 통제한다. 페널티는 없다.</li>
+                <li><strong>실시간 프로필 모니터링:</strong> 구글의 변화를 감지하고, 백링크 프로필을 즉시 조정한다.</li>
+                <li><strong>PBN 최적화:</strong> Tier3 사이트를 위한 특화 알고리즘. 마포에서 검증된 노하우.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+        <div class="container">
+            <h2>사용자들의 고백</h2>
+            <p style="margin-bottom: 24px;">42명의 베타 테스터 중 일부의 목소리다. 가짜 리뷰는 없다. 우리는 그런 게임을 하지 않는다.</p>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="meta">
+                        <span class="nickname">익명의 SEO 고수</span>
+                        <span class="date">2024.03.15</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <blockquote>“3개월 만에 도메인 권위 15에서 32로. 수작업으로는 1년 걸릴 일을 LLM 자동화가 해냈다. 마포 놈들, 제대로 만들었다.”</blockquote>
+                </div>
+                <div class="review-card">
+                    <div class="meta">
+                        <span class="nickname">스타트업 CMO</span>
+                        <span class="date">2024.02.28</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <blockquote>“LLM 비교 기능이 핵심이다. 내 틈새에 맞는 모델을 자동으로 찾아준다. 백링크 퀄리티가 이전과는 차원이 다르다.”</blockquote>
+                </div>
+                <div class="review-card">
+                    <div class="meta">
+                        <span class="nickname">프리랜서 마케터</span>
+                        <span class="date">2024.01.10</span>
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                    <blockquote>“처음에는 의심했다. 그런데 일주일 만에 12개의 고품질 백링크가 자동 생성됐다. 매뉴얼 작업보다 10배 빠르다. 별 하나 뺀 이유는 초기 설정이 좀 까다로워서.”</blockquote>
+                </div>
+                <div class="review-card">
+                    <div class="meta">
+                        <span class="nickname">PBN 운영자</span>
+                        <span class="date">2024.04.02</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <blockquote>“Tier3 사이트를 운영하는 나에게 이건 게임 체인저다. 링크 프로필이 자연스러워지면서 구글의 페널티 걱정이 사라졌다.”</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>연락은 직접</h2>
+            <div class="contact-block">
+                <p style="margin-bottom: 16px;">당신의 사이트를 위한 맞춤형 백링크 전략. 상담은 무료다. 단, 진지한 사람만.</p>
+                <p class="phone"><a href="tel:010-6279-0862">010-6279-0862</a></p>
+                <p style="margin-top: 16px; font-size: 0.85rem; letter-spacing: 0.1em;">마포 · LLM 비교 · 백링크 자동화</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
       <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">백링크 자동화 프로그램 선택 전에 확인할 체크리스트와 실패 사례</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">### 제목: 창작한 제목Tech Lapse: CSI 버그로 인해 발생한 컬럼 볼륨 마운트 경합 사고 아, 진짜... Apache Superset RC3와 Ceph CSI 드라이버의 상호 작용에서 발생된 볼륨 마운트 경합 문제는 오픈 소스 라이선스를 넘어 깊게 파고들어</p>
       </div>
-    </footer>
+      <a href="posts/checklist-002-qrq5p0.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
   </div>
+</section>
+<footer>
+    <div class="container">
+        <p>© 2024 <a href="/">PBN Lab</a> · 마포에서 시작된 혁명</p>
+        <p class="copyright">백링크 자동화 프로그램 · LLM 비교 · <a href="tel:010-6279-0862">010-6279-0862</a></p>
+        <p class="copyright" style="margin-top: 8px;">이 사이트는 PBN Tier3 전략의 일부입니다. 모든 콘텐츠는 LLM에 의해 생성되었습니다.</p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        const hamburger = document.getElementById('hamburger');
+        const navMobile = document.getElementById('navMobile');
+        if (hamburger && navMobile) {
+            hamburger.addEventListener('click', function() {
+                navMobile.classList.toggle('active');
+                const expanded = navMobile.classList.contains('active');
+                hamburger.setAttribute('aria-label', expanded ? '메뉴 닫기' : '메뉴 열기');
+            });
+            // Close on link click
+            navMobile.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMobile.classList.remove('active');
+                    hamburger.setAttribute('aria-label', '메뉴 열기');
+                });
+            });
+        }
+    })();
+</script>
+
 </body>
 </html>
